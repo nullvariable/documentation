@@ -59,6 +59,9 @@ To ensure a successful migration, complete the following tasks on the source sit
 2. Enter your current website URL, choose your site type (Drupal 7, Drupal 8, or WordPress,), and click **Continue**:
 
     ![Choose the Starting State for your Migrated Site](/source/docs/assets/images/dashboard/migrate-step2.png)
+    
+    Note: It is possible to upload a locally created site by putting in the local url eg. http://localhost
+    
 3. Name your site and select an [Organization](/docs/organizations/) (optional), then click **Create Site**:
 
     ![Name the Migrated Site and Optionally Choose an Organization](/source/docs/assets/images/dashboard/migrate-step3.png)
