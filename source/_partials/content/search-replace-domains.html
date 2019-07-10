@@ -4,22 +4,34 @@
 
 <p>The Site Dashboard runs <code>wp search-replace</code> during the cloning workflow to update environment URLs automatically. This operation, however, only runs once on a single set of URLs. If the target environment has a custom domain (e.g <code>test.example.com</code>), it's used to replace the source environment's custom domain (e.g. <code>www.example.com</code>). This can cause the target environment to have incorrect references to platform domains (e.g. <code>live-example.pantheonsite.io</code>).</p>
 
-<p>You can resolve this using one of two methods:</p>
+<p>You can resolve this using one of any methods:</p>
 
 <!-- Nav tabs -->
 
 <ul class="nav nav-tabs" role="tablist">
 <!-- Active tab -->
-<li id="terminus-replace" role="presentation" class="active"><a href="#terminus-replace-anchor" aria-controls="terminus-replace-anchor" role="tab" data-toggle="tab">Terminus</a></li>
+<li id="plugin-replace" role="presentation" class="active"><a href="#plugin-replace-anchor" aria-controls="plugin-replace-anchor" role="tab" data-toggle="tab">Plugin</a></li>
 
 <!-- 2nd Tab Nav -->
-<li id="quicksilver-replace" role="presentation"><a href="#quicksilver-replace-anchor" aria-controls="quicksilver-replace-anchor" role="tab" data-toggle="tab">Quicksilver</a></li>
+<li id="terminus-replace" role="presentation" class="active"><a href="#terminus-replace-anchor" aria-controls="terminus-replace-anchor" role="tab" data-toggle="tab">Terminus</a></li>
+  
+<!-- 3rd Tab Nav -->
+<li id="quicksilver-replace" role="presentation"><a href="#quicksilver-replace-anchor" aria-controls="quicksilver-replace-anchor" role="tab" data-toggle="tab">Quicksilver</a></li>  
 </ul>
 
 <!-- Tab panes -->
 
 <div class="tab-content">
 <!-- Active pane content -->
+<div role="tabpanel" class="tab-pane active" id="plugin-replace-anchor">
+
+<p>There are several plugins that does the search and replace functionality, one that reported by users that works well in the platform is [WP Migrate DB](https://wordpress.org/plugins/wp-migrate-db/). Make sure you select the search replace functionality https://screencast.com/t/Bm9woix6N</p>
+  
+<p>Another popular search-replace plugin is [Better Search Replace](https://wordpress.org/plugins/better-search-replace/) but there is an additional filter that needs to be added for it to work in live as outlined [here](https://pantheon.io/docs/modules-plugins-known-issues/#better-search-and-replace)</p>
+
+</div>
+
+<!-- 2nd pane content -->
 <div role="tabpanel" class="tab-pane active" id="terminus-replace-anchor">
 
 <p>Using <a href="/docs/terminus">Terminus</a>, you can run an additional <code>wp search-replace</code> command on the target environment after cloning. Set or replace the variables <code>$site</code> and <code>$env</code> with your site name and the correct environment:</p>
@@ -34,7 +46,7 @@
 
 </div>
 
-<!-- 2nd pane content -->
+<!-- 3rd pane content -->
 <div role="tabpanel" class="tab-pane" id="quicksilver-replace-anchor">
 
 <p>For those using <a href="/docs/quicksilver/">Quicksilver</a> scripts, consider the following example. On each <code>passthru</code> line, replace <code>example#.pantheonsite.io</code> and <code>example.com</code> with the domains you want to find and replace, respectively:</p>
